@@ -158,7 +158,10 @@ const Footer: React.FC = () => {
                 <p className="text-sm text-muted-foreground">Get instant answers to your questions 24/7</p>
               </div>
             </div>
-            <Button className="btn-secondary">
+            <Button 
+              className="btn-secondary"
+              onClick={() => alert('Chat feature requires backend integration. Please connect to Supabase to enable AI chat functionality.')}
+            >
               Chat Now
             </Button>
           </div>

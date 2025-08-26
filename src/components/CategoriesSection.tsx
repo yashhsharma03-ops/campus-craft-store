@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   BookOpen, 
   Calculator, 
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react';
 
 const CategoriesSection: React.FC = () => {
+  const navigate = useNavigate();
   const categories = [
     {
       id: 1,
@@ -124,6 +126,7 @@ const CategoriesSection: React.FC = () => {
               key={category.id}
               className="academic-card group cursor-pointer h-full fade-in"
               style={{ animationDelay: `${0.1 * index}s` }}
+              onClick={() => navigate('/categories')}
             >
               <div className="flex flex-col h-full">
                 {/* Header */}

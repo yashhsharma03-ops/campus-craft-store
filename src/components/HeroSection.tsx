@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Search, BookOpen, FileText, ClipboardList, TrendingUp, Star } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 
 const HeroSection: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
 
   const trendingCategories = [
     { name: 'Engineering', icon: BookOpen, count: '2.5k+', color: 'text-primary' },
@@ -66,7 +68,10 @@ const HeroSection: React.FC = () => {
 
           {/* Call to Action Buttons */}
           <div className="bounce-in flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="btn-hero">
+            <Button 
+              className="btn-hero"
+              onClick={() => navigate('/categories')}
+            >
               Explore Categories
             </Button>
             <Button className="btn-outline">
@@ -87,6 +92,7 @@ const HeroSection: React.FC = () => {
                   key={category.name}
                   className="academic-card group cursor-pointer"
                   style={{ animationDelay: `${0.1 * index}s` }}
+                  onClick={() => navigate('/categories')}
                 >
                   <div className="flex flex-col items-center space-y-3">
                     <div className={`${category.color} transition-transform duration-300 group-hover:scale-110`}>
